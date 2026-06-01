@@ -17,7 +17,7 @@ info:
     name: Apache 2.0
     url: 'https://www.apache.org/licenses/LICENSE-2.0'
   title: HyperFleet API
-  version: 1.0.19
+  version: 1.0.20
 host: hyperfleet.redhat.com
 basePath: /
 schemes:
@@ -1081,6 +1081,207 @@ paths:
       description: Returns the list of all nodepools
       operationId: getNodePools
       summary: List all nodepools for cluster
+  /api/hyperfleet/v1/wifconfigs:
+    get:
+      produces:
+        - application/json
+        - application/problem+json
+      parameters:
+        - description: >-
+            Filter results using TSL (Tree Search Language) query syntax.
+
+            Examples: `status.conditions.Reconciled='True'`, `name in
+            ('c1','c2')`, `labels.region='us-east'`
+          in: query
+          name: search
+          required: false
+          type: string
+        - default: 1
+          format: int32
+          in: query
+          name: page
+          required: false
+          type: integer
+        - default: 20
+          format: int32
+          in: query
+          name: pageSize
+          required: false
+          type: integer
+        - default: created_time
+          in: query
+          name: orderBy
+          required: false
+          type: string
+        - enum:
+            - asc
+            - desc
+          in: query
+          name: order
+          required: false
+          type: string
+      responses:
+        '200':
+          description: The request has succeeded.
+          schema:
+            $ref: '#/definitions/WIFConfigList'
+        '400':
+          description: The server could not understand the request due to invalid syntax.
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/Error'
+      security:
+        - BearerAuth: []
+      tags:
+        - WIFConfigs
+      description: >-
+        Returns a paginated list of WIF configs, optionally filtered by labels
+        or TSL query.
+      operationId: getWIFConfigs
+      summary: List WIF configs
+    post:
+      consumes:
+        - application/json
+      produces:
+        - application/json
+        - application/problem+json
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/WIFConfigCreateRequest'
+      responses:
+        '201':
+          description: >-
+            The request has succeeded and a new resource has been created as a
+            result.
+          schema:
+            $ref: '#/definitions/WIFConfig'
+        '400':
+          description: The server could not understand the request due to invalid syntax.
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/Error'
+      security:
+        - BearerAuth: []
+      tags:
+        - WIFConfigs
+      description: Creates a new WIF config.
+      operationId: postWIFConfig
+      summary: Create WIF config
+  '/api/hyperfleet/v1/wifconfigs/{wifconfig_id}':
+    delete:
+      produces:
+        - application/json
+        - application/problem+json
+      parameters:
+        - in: path
+          name: wifconfig_id
+          required: true
+          type: string
+      responses:
+        '202':
+          description: >-
+            The request has been accepted for processing, but processing has not
+            yet completed.
+          schema:
+            $ref: '#/definitions/WIFConfig'
+        '400':
+          description: The server could not understand the request due to invalid syntax.
+        '404':
+          description: The server cannot find the requested resource.
+        '409':
+          description: The request conflicts with the current state of the server.
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/Error'
+      security:
+        - BearerAuth: []
+      tags:
+        - WIFConfigs
+      description: Marks a WIF config for deletion.
+      operationId: deleteWIFConfigById
+      summary: Request WIF config deletion
+    get:
+      produces:
+        - application/json
+        - application/problem+json
+      parameters:
+        - description: >-
+            Filter results using TSL (Tree Search Language) query syntax.
+
+            Examples: `status.conditions.Reconciled='True'`, `name in
+            ('c1','c2')`, `labels.region='us-east'`
+          in: query
+          name: search
+          required: false
+          type: string
+        - in: path
+          name: wifconfig_id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The request has succeeded.
+          schema:
+            $ref: '#/definitions/WIFConfig'
+        '400':
+          description: The server could not understand the request due to invalid syntax.
+        '404':
+          description: The server cannot find the requested resource.
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/Error'
+      security:
+        - BearerAuth: []
+      tags:
+        - WIFConfigs
+      description: Returns a single WIF config by its ID.
+      operationId: getWIFConfigById
+      summary: Get WIF config by ID
+    patch:
+      consumes:
+        - application/json
+      produces:
+        - application/json
+        - application/problem+json
+      parameters:
+        - in: path
+          name: wifconfig_id
+          required: true
+          type: string
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/WIFConfigPatchRequest'
+      responses:
+        '200':
+          description: The request has succeeded.
+          schema:
+            $ref: '#/definitions/WIFConfig'
+        '400':
+          description: The server could not understand the request due to invalid syntax.
+        '404':
+          description: The server cannot find the requested resource.
+        '409':
+          description: The request conflicts with the current state of the server.
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/Error'
+      security:
+        - BearerAuth: []
+      tags:
+        - WIFConfigs
+      description: Patches a WIF config by ID. Supports partial updates to spec and labels.
+      operationId: patchWIFConfigById
+      summary: Patch WIF config by ID
 definitions:
   AcceleratorSpec:
     properties:
@@ -2457,6 +2658,176 @@ definitions:
       - is_default
       - release_image
     type: object
+  WIFConfig:
+    example:
+      created_by: user-123@example.com
+      created_time: '2025-06-01T00:00:00Z'
+      generation: 1
+      href: /api/hyperfleet/v1/wifconfigs/019466a2-5678-7abc-9def-0123456789ab
+      id: 019466a2-5678-7abc-9def-0123456789ab
+      kind: WIFConfig
+      labels:
+        environment: production
+      name: my-wif-config
+      spec:
+        project_id: my-gcp-project-123
+        version: '4.17'
+      status:
+        conditions: []
+      updated_by: user-123@example.com
+      updated_time: '2025-06-01T10:02:00Z'
+    properties:
+      created_by:
+        description: Identity that created the resource
+        format: email
+        type: string
+      created_time:
+        description: Timestamp when the resource was created
+        format: date-time
+        type: string
+      deleted_by:
+        description: Identity that requested deletion; omitted if not marked for deletion
+        format: email
+        type: string
+      deleted_time:
+        description: >-
+          Timestamp when deletion was requested; omitted if not marked for
+          deletion
+        format: date-time
+        type: string
+      generation:
+        format: int32
+        minimum: 1
+        type: integer
+      href:
+        description: Resource URI
+        type: string
+      id:
+        description: Resource identifier
+        type: string
+      kind:
+        description: Resource kind
+        type: string
+      labels:
+        additionalProperties:
+          type: string
+        description: 'labels for the API resource as pairs of name:value strings'
+        type: object
+      name:
+        maxLength: 63
+        minLength: 1
+        pattern: '^[a-z0-9]([-a-z0-9]*[a-z0-9])?$'
+        type: string
+      spec:
+        $ref: '#/definitions/WIFConfigSpec'
+      status:
+        $ref: '#/definitions/ResourceStatus'
+      updated_by:
+        description: Identity that last updated the resource
+        format: email
+        type: string
+      updated_time:
+        description: Timestamp when the resource was last updated
+        format: date-time
+        type: string
+    required:
+      - name
+      - spec
+      - created_time
+      - updated_time
+      - created_by
+      - updated_by
+      - generation
+      - status
+    type: object
+  WIFConfigCreateRequest:
+    example:
+      kind: WIFConfig
+      labels:
+        environment: production
+      name: my-wif-config
+      spec:
+        project_id: my-gcp-project-123
+        version: '4.17'
+    properties:
+      href:
+        description: Resource URI
+        type: string
+      id:
+        description: Resource identifier
+        type: string
+      kind:
+        description: Resource kind
+        type: string
+      labels:
+        additionalProperties:
+          type: string
+        description: 'labels for the API resource as pairs of name:value strings'
+        type: object
+      name:
+        maxLength: 63
+        minLength: 1
+        pattern: '^[a-z0-9]([-a-z0-9]*[a-z0-9])?$'
+        type: string
+      spec:
+        $ref: '#/definitions/WIFConfigSpec'
+    required:
+      - name
+      - spec
+    type: object
+  WIFConfigList:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/WIFConfig'
+        type: array
+      kind:
+        type: string
+      page:
+        format: int32
+        type: integer
+      size:
+        format: int32
+        type: integer
+      total:
+        format: int32
+        type: integer
+    required:
+      - kind
+      - page
+      - size
+      - total
+      - items
+    type: object
+  WIFConfigPatchRequest:
+    additionalProperties: false
+    example:
+      labels:
+        environment: staging
+      spec:
+        project_id: my-gcp-project-456
+        version: '4.18'
+    minProperties: 1
+    properties:
+      labels:
+        additionalProperties:
+          type: string
+        type: object
+      spec:
+        $ref: '#/definitions/WIFConfigSpec'
+    type: object
+  WIFConfigSpec:
+    properties:
+      project_id:
+        description: GCP project identifier
+        type: string
+      version:
+        description: Version of the WIF configuration
+        type: string
+    required:
+      - version
+      - project_id
+    type: object
 securityDefinitions:
   BearerAuth:
     in: header
@@ -2467,6 +2838,7 @@ tags:
   - name: NodePools
   - name: Channels
   - name: Versions
+  - name: WIFConfigs
 x-components:
   parameters:
     QueryParams.order:

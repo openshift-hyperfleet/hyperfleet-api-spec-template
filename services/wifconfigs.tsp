@@ -54,6 +54,22 @@ interface WIFConfigs {
     | BadRequestResponse;
 
   /**
+   * Patches a WIF config by ID. Supports partial updates to spec and labels.
+   */
+  @route("/{wifconfig_id}")
+  @patch
+  @summary("Patch WIF config by ID")
+  @operationId("patchWIFConfigById")
+  patchWIFConfigById(
+    @path wifconfig_id: string,
+    @body body: WIFConfigPatchRequest,
+  ): WIFConfig
+    | Error
+    | NotFoundResponse
+    | BadRequestResponse
+    | ConflictResponse;
+
+  /**
    * Marks a WIF config for deletion.
    */
   @route("/{wifconfig_id}")

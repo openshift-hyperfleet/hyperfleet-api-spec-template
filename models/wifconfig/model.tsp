@@ -4,6 +4,7 @@ import "hyperfleet/shared/models/statuses/model.tsp";
 import "hyperfleet/shared/models/resource/model.tsp";
 import "./example_wifconfig.tsp";
 import "./example_post.tsp";
+import "./example_patch.tsp";
 
 using OpenAPI;
 
@@ -42,6 +43,14 @@ model WIFConfig {
 @example(exampleWIFConfigCreateRequest)
 model WIFConfigCreateRequest {
   ...WIFConfigBase;
+}
+
+@extension("minProperties", 1)
+@extension("additionalProperties", false)
+@example(exampleWIFConfigPatchRequest)
+model WIFConfigPatchRequest {
+  spec?: WIFConfigSpec;
+  labels?: Record<string>;
 }
 
 model WIFConfigList {
