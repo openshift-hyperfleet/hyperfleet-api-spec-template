@@ -12,11 +12,13 @@ import "./models/nodepool/example_post.tsp";
 import "./models/nodepool/example_patch.tsp";
 import "./models/channel/model.tsp";
 import "./models/version/model.tsp";
+import "./models/wifconfig/model.tsp";
 
 import "hyperfleet/shared/services/clusters.tsp";
 import "hyperfleet/shared/services/nodepools.tsp";
 import "./services/channels.tsp";
 import "./services/versions.tsp";
+import "./services/wifconfigs.tsp";
 
 using Http;
 using OpenAPI;
