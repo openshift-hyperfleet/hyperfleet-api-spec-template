@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.20] - 2026-06-01
+
+### Added
+
+- WIFConfig resource model (`WIFConfigSpec`, `WIFConfigBase`, `WIFConfig`, `WIFConfigCreateRequest`, `WIFConfigList`) (HYPERFLEET-1089)
+- `/wifconfigs` service endpoints: `GET` list, `GET` by ID, `POST`, `PATCH`, `DELETE` (HYPERFLEET-1089)
+
+## [1.0.19] - 2026-05-29
+
+### Added
+
+- `go.mod` so Go consumers can import this repo as a module dependency
+
+### Changed
+
+- CI skips version bump check when no `.tsp` files changed
+
 ## [1.0.18] - 2026-05-26
 
 ### Added
@@ -45,7 +62,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `hyperfleet` npm dependency for importing shared models and services from the core repository
 
 <!-- Links -->
-[Unreleased]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.18...HEAD
+[Unreleased]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.20...HEAD
+[1.0.20]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.19...v1.0.20
+[1.0.19]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.18...v1.0.19
 [1.0.18]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.17...v1.0.18
 [1.0.17]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.16...v1.0.17
 [1.0.16]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.15...v1.0.16
