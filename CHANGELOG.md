@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.21] - 2026-06-02
+
+### Added
+
+- Swagger UI (`index.html`) for browsing the Template OpenAPI contract on GitHub Pages (swagger-ui-dist 5.32.6)
+
 ## [1.0.20] - 2026-06-01
 
 ### Added
@@ -62,7 +68,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `hyperfleet` npm dependency for importing shared models and services from the core repository
 
 <!-- Links -->
-[Unreleased]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.20...HEAD
+
+[Unreleased]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.21...HEAD
+[1.0.21]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.20...v1.0.21
 [1.0.20]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.19...v1.0.20
 [1.0.19]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.18...v1.0.19
 [1.0.18]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.17...v1.0.18

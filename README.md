@@ -1,6 +1,11 @@
 # HyperFleet Template API Spec
 
 This repository is a template for creating the public API contract for HyperFleet for a cloud provider.
+
+Browse the generated contract in Swagger UI (GitHub Pages):
+
+- <https://openshift-hyperfleet.github.io/hyperfleet-api-spec-template/index.html>
+
 The public contract is different from the internal (core) one because: only contains generic API endpoints (`/resource`)
 
 The core contract provides shared schemas for statuses, errors, pagination, etc... that are published as an NPM module that this repository adds as a dependency.
@@ -15,6 +20,7 @@ Both will be created by executing the build script.
 
 ```
 hyperfleet-api-spec-template/
+├── index.html                # Swagger UI (GitHub Pages, swagger-ui-dist 5.32.6)
 ├── main.tsp                  # Main TypeSpec entry point
 ├── tspconfig.yaml            # TypeSpec compiler configuration
 ├── build-schema.sh           # Build script for OpenAPI generation

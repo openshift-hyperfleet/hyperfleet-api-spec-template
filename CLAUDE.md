@@ -5,14 +5,19 @@ This repository generates the HyperFleet Template OpenAPI specification from Typ
 ## Quick Reference
 
 **Build commands:**
+
 ```bash
-npm run build            # Generate Template OpenAPI 3.0
-npm run build:swagger    # Generate Template OpenAPI 3.0 + Swagger 2.0
+npm run build            # Generate Template OpenAPI 3.0 + Swagger 2.0
 ./build-schema.sh        # Same as npm run build
-./build-schema.sh --swagger  # Same as npm run build:swagger
 ```
 
+**Swagger UI (GitHub Pages):**
+
+- `index.html` loads `schemas/template/openapi.yaml` via raw.githubusercontent.com (swagger-ui-dist 5.32.6 from jsDelivr)
+- Published at <https://openshift-hyperfleet.github.io/hyperfleet-api-spec-template/>
+
 **Validation workflow:**
+
 ```bash
 npm install                              # Install dependencies (includes hyperfleet package)
 ./build-schema.sh                        # Build Template OpenAPI 3.0
@@ -47,14 +52,14 @@ To use a local core checkout during development, use `npm link` or a local path:
 
 ### What Lives Here vs Core
 
-| Concern | Location |
-|---------|----------|
-| Cluster/nodepool/status/resource CRUD routes | Core repo (`hyperfleet` package) |
-| `TemplateClusterSpec` fields | `models/cluster/model.tsp` |
-| Template nodepool fields | `models/nodepool/model.tsp` |
-| Channels and versions models | `models/channel/`, `models/version/` |
-| Channels and versions service endpoints | `services/channels.tsp`, `services/versions.tsp` |
-| Generated output | `schemas/template/openapi.yaml` (committed) |
+| Concern                                      | Location                                         |
+| -------------------------------------------- | ------------------------------------------------ |
+| Cluster/nodepool/status/resource CRUD routes | Core repo (`hyperfleet` package)                 |
+| `TemplateClusterSpec` fields                 | `models/cluster/model.tsp`                       |
+| Template nodepool fields                     | `models/nodepool/model.tsp`                      |
+| Channels and versions models                 | `models/channel/`, `models/version/`             |
+| Channels and versions service endpoints      | `services/channels.tsp`, `services/versions.tsp` |
+| Generated output                             | `schemas/template/openapi.yaml` (committed)      |
 
 ### Public vs Internal APIs
 
@@ -65,6 +70,7 @@ The internal status and force-delete endpoints come from the core shared contrac
 ### TypeSpec Conventions
 
 **Imports first, namespace second:**
+
 ```typescript
 import "@typespec/http";
 import "hyperfleet/shared/models/common/model.tsp";
@@ -74,6 +80,7 @@ namespace HyperFleet;
 ```
 
 **Model naming:**
+
 - Template resources: `TemplateClusterSpec`, `ReleaseSpec`, `ChannelSpec`, `VersionSpec`
 - Lists: `ChannelList`, `VersionList`
 - Requests: `ChannelCreateRequest`, `ChannelPatchRequest`
@@ -94,11 +101,13 @@ services/
 ## Boundaries
 
 **DO NOT:**
+
 - Modify generated files in `schemas/` or `tsp-output-template/` directly
 - Add shared/core models here — they belong in the core repo's `shared/` directory
 - Commit `node_modules/` or build artifacts
 
 **DO:**
+
 - Run `./build-schema.sh` and commit `schemas/template/openapi.yaml` with your changes
 - Run `./build-schema.sh --swagger` and commit `schemas/template/swagger.yaml` when releasing
 - Keep TypeSpec files focused (one resource per service file)
@@ -139,6 +148,7 @@ Rebuild: `npm run build`
 ### Add a new Template-specific resource
 
 1. Create model:
+
 ```typescript
 // models/policy/model.tsp
 import "@typespec/http";
@@ -151,7 +161,8 @@ model PolicySpec {
 }
 ```
 
-2. Create service:
+1. Create service:
+
 ```typescript
 // services/policies.tsp
 import "@typespec/http";
@@ -167,22 +178,25 @@ interface Policies {
 }
 ```
 
-3. Import both in `main.tsp`:
+1. Import both in `main.tsp`:
+
 ```typescript
 import "./models/policy/model.tsp";
 import "./services/policies.tsp";
 ```
 
-4. Build: `npm run build`
+1. Build: `npm run build`
 
 ### Update the hyperfleet core dependency
 
 1. Edit `package.json`:
+
 ```json
 "hyperfleet": "github:openshift-hyperfleet/hyperfleet-api-spec#v1.0.19"
 ```
 
-2. Reinstall and rebuild:
+1. Reinstall and rebuild:
+
 ```bash
 npm install
 npm run build
@@ -213,11 +227,13 @@ Before submitting changes:
 ## Build System Details
 
 **The build-schema.sh script:**
+
 1. Runs `node_modules/.bin/tsp compile main.tsp --output-dir tsp-output-template`
 2. Moves output to `schemas/template/openapi.yaml`
 3. (Optional with `--swagger`) Converts to OpenAPI 2.0 via `api-spec-converter` → `schemas/template/swagger.yaml`
 
 **Output locations:**
+
 - TypeSpec temp: `tsp-output-template/schema/openapi.yaml` (auto-deleted)
 - Final: `schemas/template/openapi.yaml` and `schemas/template/swagger.yaml` (committed)
 
@@ -226,6 +242,7 @@ Before submitting changes:
 Releases are **fully automated** via GitHub Actions (`.github/workflows/release.yml`).
 
 On every push to `main`, the release workflow:
+
 1. Extracts the version from the `@info` decorator in `main.tsp`
 2. Skips if a tag for that version already exists
 3. Builds both schema formats (`openapi.yaml` and `swagger.yaml`)
