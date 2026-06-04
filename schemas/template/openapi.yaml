@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: HyperFleet API
-  version: 1.0.21
+  version: 1.0.22
   contact:
     name: HyperFleet Team
     url: https://github.com/openshift-hyperfleet
@@ -41,12 +41,16 @@ paths:
                 $ref: '#/components/schemas/ChannelList'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - Channels
       security:
@@ -65,12 +69,16 @@ paths:
                 $ref: '#/components/schemas/Channel'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - Channels
       requestBody:
@@ -102,14 +110,22 @@ paths:
                 $ref: '#/components/schemas/Channel'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
         '404':
           description: The server cannot find the requested resource.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/NotFoundDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - Channels
       security:
@@ -133,16 +149,28 @@ paths:
                 $ref: '#/components/schemas/Channel'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
         '404':
           description: The server cannot find the requested resource.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/NotFoundDetails'
         '409':
           description: The request conflicts with the current state of the server.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - Channels
       requestBody:
@@ -172,16 +200,28 @@ paths:
                 $ref: '#/components/schemas/Channel'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
         '404':
           description: The server cannot find the requested resource.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/NotFoundDetails'
         '409':
           description: The request conflicts with the current state of the server.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - Channels
       security:
@@ -211,12 +251,16 @@ paths:
                 $ref: '#/components/schemas/VersionList'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - Versions
       security:
@@ -240,12 +284,16 @@ paths:
                 $ref: '#/components/schemas/Version'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - Versions
       requestBody:
@@ -281,14 +329,22 @@ paths:
                 $ref: '#/components/schemas/Version'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
         '404':
           description: The server cannot find the requested resource.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/NotFoundDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - Versions
       security:
@@ -317,16 +373,28 @@ paths:
                 $ref: '#/components/schemas/Version'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
         '404':
           description: The server cannot find the requested resource.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/NotFoundDetails'
         '409':
           description: The request conflicts with the current state of the server.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - Versions
       requestBody:
@@ -361,16 +429,28 @@ paths:
                 $ref: '#/components/schemas/Version'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
         '404':
           description: The server cannot find the requested resource.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/NotFoundDetails'
         '409':
           description: The request conflicts with the current state of the server.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - Versions
       security:
@@ -395,12 +475,22 @@ paths:
                 $ref: '#/components/schemas/ClusterList'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
+        '401':
+          description: The request requires valid authentication credentials.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - Clusters
       security:
@@ -424,12 +514,28 @@ paths:
                 $ref: '#/components/schemas/Cluster'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
+        '401':
+          description: The request requires valid authentication credentials.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedDetails'
+        '409':
+          description: The request conflicts with the current state of the server.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - Clusters
       requestBody:
@@ -461,12 +567,28 @@ paths:
                 $ref: '#/components/schemas/Cluster'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
+        '401':
+          description: The request requires valid authentication credentials.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedDetails'
+        '404':
+          description: The server cannot find the requested resource.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/NotFoundDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - Clusters
       security:
@@ -491,16 +613,34 @@ paths:
                 $ref: '#/components/schemas/Cluster'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
+        '401':
+          description: The request requires valid authentication credentials.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedDetails'
         '404':
           description: The server cannot find the requested resource.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/NotFoundDetails'
         '409':
           description: The request conflicts with the current state of the server.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - Clusters
       requestBody:
@@ -602,14 +742,28 @@ paths:
                 deleted_by: user-123@example.com
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
+        '401':
+          description: The request requires valid authentication credentials.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedDetails'
         '404':
           description: The server cannot find the requested resource.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/NotFoundDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - Clusters
       security:
@@ -640,12 +794,22 @@ paths:
                 $ref: '#/components/schemas/NodePoolList'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
+        '401':
+          description: The request requires valid authentication credentials.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - NodePools
       security:
@@ -670,14 +834,34 @@ paths:
                 $ref: '#/components/schemas/NodePoolCreateResponse'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
+        '401':
+          description: The request requires valid authentication credentials.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedDetails'
+        '404':
+          description: The server cannot find the requested resource.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/NotFoundDetails'
         '409':
           description: The request conflicts with the current state of the server.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - NodePools
       requestBody:
@@ -715,12 +899,28 @@ paths:
                 $ref: '#/components/schemas/NodePool'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
+        '401':
+          description: The request requires valid authentication credentials.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedDetails'
+        '404':
+          description: The server cannot find the requested resource.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/NotFoundDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - NodePools
       security:
@@ -826,14 +1026,28 @@ paths:
                 deleted_by: user-123@example.com
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
+        '401':
+          description: The request requires valid authentication credentials.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedDetails'
         '404':
           description: The server cannot find the requested resource.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/NotFoundDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - NodePools
       security:
@@ -864,16 +1078,34 @@ paths:
                 $ref: '#/components/schemas/NodePool'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
+        '401':
+          description: The request requires valid authentication credentials.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedDetails'
         '404':
           description: The server cannot find the requested resource.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/NotFoundDetails'
         '409':
           description: The request conflicts with the current state of the server.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - NodePools
       requestBody:
@@ -904,12 +1136,22 @@ paths:
                 $ref: '#/components/schemas/NodePoolList'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
+        '401':
+          description: The request requires valid authentication credentials.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - NodePools
       security:
@@ -934,12 +1176,16 @@ paths:
                 $ref: '#/components/schemas/WIFConfigList'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - WIFConfigs
       security:
@@ -958,12 +1204,16 @@ paths:
                 $ref: '#/components/schemas/WIFConfig'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - WIFConfigs
       requestBody:
@@ -995,14 +1245,22 @@ paths:
                 $ref: '#/components/schemas/WIFConfig'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
         '404':
           description: The server cannot find the requested resource.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/NotFoundDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - WIFConfigs
       security:
@@ -1026,16 +1284,28 @@ paths:
                 $ref: '#/components/schemas/WIFConfig'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
         '404':
           description: The server cannot find the requested resource.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/NotFoundDetails'
         '409':
           description: The request conflicts with the current state of the server.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - WIFConfigs
       requestBody:
@@ -1065,16 +1335,28 @@ paths:
                 $ref: '#/components/schemas/WIFConfig'
         '400':
           description: The server could not understand the request due to invalid syntax.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestDetails'
         '404':
           description: The server cannot find the requested resource.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/NotFoundDetails'
         '409':
           description: The request conflicts with the current state of the server.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictDetails'
         default:
           description: An unexpected error response.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ProblemDetails'
       tags:
         - WIFConfigs
       security:
@@ -1103,6 +1385,7 @@ components:
       schema:
         type: integer
         format: int32
+        minimum: 1
         default: 1
       explode: false
     QueryParams.pageSize:
@@ -1112,6 +1395,7 @@ components:
       schema:
         type: integer
         format: int32
+        minimum: 1
         default: 20
       explode: false
     SearchParams:
@@ -1159,6 +1443,19 @@ components:
           type: string
         scaleUpDelay:
           type: string
+    BadRequestDetails:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/ProblemDetails'
+      example:
+        type: https://api.hyperfleet.io/errors/validation-error
+        title: Validation Failed
+        status: 400
+        detail: The cluster name field is required
+        instance: /api/hyperfleet/v1/clusters
+        code: HYPERFLEET-VAL-001
+        timestamp: '2024-01-15T10:30:00Z'
+        trace_id: aabbccddeeff0011
     BearerAuth:
       type: object
       required:
@@ -1291,14 +1588,11 @@ components:
     ChannelList:
       type: object
       required:
-        - kind
         - page
         - size
         - total
         - items
       properties:
-        kind:
-          type: string
         page:
           type: integer
           format: int32
@@ -1530,14 +1824,11 @@ components:
     ClusterList:
       type: object
       required:
-        - kind
         - page
         - size
         - total
         - items
       properties:
-        kind:
-          type: string
         page:
           type: integer
           format: int32
@@ -1657,59 +1948,45 @@ components:
         It is aggregated from condition updates posted to `/clusters/{id}/statuses`.
 
         Provides quick overview of all reported conditions.
+    ConflictDetails:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/ProblemDetails'
+      example:
+        type: https://api.hyperfleet.io/errors/resource-conflict
+        title: Resource Conflict
+        status: 409
+        detail: This Cluster already exists
+        instance: /api/hyperfleet/v1/clusters
+        code: HYPERFLEET-CNF-001
+        timestamp: '2024-01-15T10:30:00Z'
+        trace_id: cafe0011aabb9988
     DNSSpec:
       type: object
       properties:
         baseDomain:
           type: string
-    Error:
+    ForbiddenDetails:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/ProblemDetails'
+      example:
+        type: https://api.hyperfleet.io/errors/permission-denied
+        title: Permission Denied
+        status: 403
+        detail: You do not have permission to perform this action
+        instance: /api/hyperfleet/v1/clusters
+        code: HYPERFLEET-AUZ-001
+        timestamp: '2024-01-15T10:30:00Z'
+        trace_id: 99aabbcc11223344
+    ForbiddenResponse:
       type: object
       required:
-        - type
-        - title
-        - status
+        - body
       properties:
-        type:
-          type: string
-          format: uri
-          description: URI reference identifying the problem type
-          example: https://api.hyperfleet.io/errors/validation-error
-        title:
-          type: string
-          description: Short human-readable summary of the problem
-          example: Validation Failed
-        status:
-          type: integer
-          description: HTTP status code
-          example: 400
-        detail:
-          type: string
-          description: Human-readable explanation specific to this occurrence
-          example: The cluster name field is required
-        instance:
-          type: string
-          format: uri-reference
-          description: URI reference for this specific occurrence
-          example: /api/hyperfleet/v1/clusters
-        code:
-          type: string
-          description: Machine-readable error code in HYPERFLEET-CAT-NUM format
-          example: HYPERFLEET-VAL-001
-        timestamp:
-          type: string
-          format: date-time
-          description: RFC3339 timestamp of when the error occurred
-          example: '2024-01-15T10:30:00Z'
-        trace_id:
-          type: string
-          description: Distributed trace ID for correlation
-          example: abc123def456
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          description: Field-level validation errors (for validation failures)
-      description: RFC 9457 Problem Details error format with HyperFleet extensions
+        body:
+          $ref: '#/components/schemas/ForbiddenDetails'
+      description: The client does not have permission to perform this action.
     NetworkingSpec:
       type: object
       properties:
@@ -1984,14 +2261,11 @@ components:
     NodePoolList:
       type: object
       required:
-        - kind
         - page
         - size
         - total
         - items
       properties:
-        kind:
-          type: string
         page:
           type: integer
           format: int32
@@ -2117,6 +2391,19 @@ components:
         NodePool status computed from all status conditions.
 
         This object is computed by the service and CANNOT be modified directly.
+    NotFoundDetails:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/ProblemDetails'
+      example:
+        type: https://api.hyperfleet.io/errors/resource-not-found
+        title: Resource Not Found
+        status: 404
+        detail: Cluster with id='019466a0-8f8e-7abc-9def-0123456789ab' not found
+        instance: /api/hyperfleet/v1/clusters/019466a0-8f8e-7abc-9def-0123456789ab
+        code: HYPERFLEET-NTF-001
+        timestamp: '2024-01-15T10:30:00Z'
+        trace_id: deadbeef12345678
     ObjectReference:
       type: object
       properties:
@@ -2134,6 +2421,55 @@ components:
       enum:
         - asc
         - desc
+    ProblemDetails:
+      type: object
+      required:
+        - type
+        - title
+        - status
+      properties:
+        type:
+          type: string
+          format: uri
+          description: URI reference identifying the problem type
+        title:
+          type: string
+          description: Short human-readable summary of the problem
+        status:
+          type: integer
+          description: HTTP status code
+        detail:
+          type: string
+          description: Human-readable explanation specific to this occurrence
+        instance:
+          type: string
+          format: uri-reference
+          description: URI reference for this specific occurrence
+        code:
+          type: string
+          description: Machine-readable error code in HYPERFLEET-CAT-NUM format
+        timestamp:
+          type: string
+          format: date-time
+          description: RFC3339 timestamp of when the error occurred
+        trace_id:
+          type: string
+          description: Distributed trace ID for correlation
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          description: Field-level validation errors (for validation failures)
+      description: RFC 9457 Problem Details for HTTP APIs
+      example:
+        type: https://api.hyperfleet.io/errors/internal-error
+        title: Internal Server Error
+        status: 500
+        detail: Unspecified error
+        instance: /api/hyperfleet/v1/clusters
+        code: HYPERFLEET-INT-001
+        timestamp: '2024-01-15T10:30:00Z'
+        trace_id: f0f0f0f0a1a1a1a1
     ReleaseSpec:
       type: object
       properties:
@@ -2223,6 +2559,19 @@ components:
             - NoSchedule
             - PreferNoSchedule
             - NoExecute
+    UnauthorizedDetails:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/ProblemDetails'
+      example:
+        type: https://api.hyperfleet.io/errors/authentication-required
+        title: Authentication Required
+        status: 401
+        detail: Account authentication could not be verified
+        instance: /api/hyperfleet/v1/clusters
+        code: HYPERFLEET-AUT-001
+        timestamp: '2024-01-15T10:30:00Z'
+        trace_id: '1122334455667788'
     ValidationError:
       type: object
       required:
@@ -2379,14 +2728,11 @@ components:
     VersionList:
       type: object
       required:
-        - kind
         - page
         - size
         - total
         - items
       properties:
-        kind:
-          type: string
         page:
           type: integer
           format: int32
@@ -2561,14 +2907,11 @@ components:
     WIFConfigList:
       type: object
       required:
-        - kind
         - page
         - size
         - total
         - items
       properties:
-        kind:
-          type: string
         page:
           type: integer
           format: int32
