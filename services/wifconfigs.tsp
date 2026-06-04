@@ -10,18 +10,18 @@ using OpenAPI;
 
 namespace HyperFleet;
 
-@tag("WIFConfigs")
+@tag("WifConfigs")
 @route("/wifconfigs")
 @useAuth(HyperFleet.BearerAuth)
-interface WIFConfigs {
+interface WifConfigs {
   /**
    * Returns a paginated list of WIF configs, optionally filtered by labels or TSL query.
    */
   @get
   @route("")
   @summary("List WIF configs")
-  @operationId("getWIFConfigs")
-  getWIFConfigs(...QueryParams): Body<WIFConfigList>
+  @operationId("getWifConfigs")
+  getWifConfigs(...QueryParams): Body<WifConfigList>
     | Error
     | BadRequestResponse;
 
@@ -31,11 +31,11 @@ interface WIFConfigs {
   @route("/{wifconfig_id}")
   @get
   @summary("Get WIF config by ID")
-  @operationId("getWIFConfigById")
-  getWIFConfigById(
+  @operationId("getWifConfigById")
+  getWifConfigById(
     ...SearchParams,
     @path wifconfig_id: string,
-  ): WIFConfig
+  ): WifConfig
     | Error
     | NotFoundResponse
     | BadRequestResponse;
@@ -46,10 +46,10 @@ interface WIFConfigs {
   @route("")
   @post
   @summary("Create WIF config")
-  @operationId("postWIFConfig")
-  postWIFConfig(@body body: WIFConfigCreateRequest): {
+  @operationId("postWifConfig")
+  postWifConfig(@body body: WifConfigCreateRequest): {
     @statusCode statusCode: 201;
-    @body wifconfig: WIFConfig;
+    @body wifconfig: WifConfig;
   } | Error
     | BadRequestResponse;
 
@@ -59,11 +59,11 @@ interface WIFConfigs {
   @route("/{wifconfig_id}")
   @patch
   @summary("Patch WIF config by ID")
-  @operationId("patchWIFConfigById")
-  patchWIFConfigById(
+  @operationId("patchWifConfigById")
+  patchWifConfigById(
     @path wifconfig_id: string,
-    @body body: WIFConfigPatchRequest,
-  ): WIFConfig
+    @body body: WifConfigPatchRequest,
+  ): WifConfig
     | Error
     | NotFoundResponse
     | BadRequestResponse
@@ -75,12 +75,12 @@ interface WIFConfigs {
   @route("/{wifconfig_id}")
   @delete
   @summary("Request WIF config deletion")
-  @operationId("deleteWIFConfigById")
-  deleteWIFConfigById(
+  @operationId("deleteWifConfigById")
+  deleteWifConfigById(
     @path wifconfig_id: string,
   ): {
     @statusCode statusCode: 202;
-    @body wifconfig: WIFConfig;
+    @body wifconfig: WifConfig;
   } | NotFoundResponse
     | ConflictResponse
     | Error

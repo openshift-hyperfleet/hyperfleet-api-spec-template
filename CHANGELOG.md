@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.22] - 2026-06-04
+
+### Changed
+
+- Renamed `WIFConfig` to `WifConfig` (PascalCase) for consistency with other resource kinds (HYPERFLEET-1090)
+
 ## [1.0.21] - 2026-06-02
 
 ### Added
@@ -69,7 +75,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- Links -->
 
-[Unreleased]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.21...HEAD
+[Unreleased]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.22...HEAD
+[1.0.22]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.21...v1.0.22
 [1.0.21]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.20...v1.0.21
 [1.0.20]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.19...v1.0.20
 [1.0.19]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.18...v1.0.19

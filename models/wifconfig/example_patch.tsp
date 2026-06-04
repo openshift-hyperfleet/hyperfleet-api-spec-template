@@ -1,6 +1,6 @@
 import "./model.tsp";
 
-const exampleWIFConfigPatchRequest: WIFConfigPatchRequest = #{
+const exampleWifConfigPatchRequest: WifConfigPatchRequest = #{
   spec: #{
     version: "4.18",
     project_id: "my-gcp-project-456",

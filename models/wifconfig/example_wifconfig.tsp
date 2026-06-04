@@ -1,8 +1,8 @@
 import "./model.tsp";
 import "hyperfleet/shared/models/common/model.tsp";
 
-const exampleWIFConfig: WIFConfig = #{
-  kind: "WIFConfig",
+const exampleWifConfig: WifConfig = #{
+  kind: "WifConfig",
   id: "019466a2-5678-7abc-9def-0123456789ab",
   href: "/api/hyperfleet/v1/wifconfigs/019466a2-5678-7abc-9def-0123456789ab",
   name: "my-wif-config",

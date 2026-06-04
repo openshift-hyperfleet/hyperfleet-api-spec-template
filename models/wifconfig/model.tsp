@@ -8,9 +8,9 @@ import "./example_patch.tsp";
 
 using OpenAPI;
 
-alias KindWIFConfig = "WIFConfig";
+alias KindWifConfig = "WifConfig";
 
-model WIFConfigSpec {
+model WifConfigSpec {
   /** Version of the WIF configuration */
   version: string;
 
@@ -18,7 +18,7 @@ model WIFConfigSpec {
   project_id: string;
 }
 
-model WIFConfigBase {
+model WifConfigBase {
   ...APIResource;
 
   @minLength(1)
@@ -26,12 +26,12 @@ model WIFConfigBase {
   @pattern("^[a-z0-9]([-a-z0-9]*[a-z0-9])?$")
   name: string;
 
-  spec: WIFConfigSpec;
+  spec: WifConfigSpec;
 }
 
-@example(exampleWIFConfig)
-model WIFConfig {
-  ...WIFConfigBase;
+@example(exampleWifConfig)
+model WifConfig {
+  ...WifConfigBase;
   ...APIMetadata;
 
   @minValue(1)
@@ -40,19 +40,19 @@ model WIFConfig {
   status: ResourceStatus;
 }
 
-@example(exampleWIFConfigCreateRequest)
-model WIFConfigCreateRequest {
-  ...WIFConfigBase;
+@example(exampleWifConfigCreateRequest)
+model WifConfigCreateRequest {
+  ...WifConfigBase;
 }
 
 @extension("minProperties", 1)
 @extension("additionalProperties", false)
-@example(exampleWIFConfigPatchRequest)
-model WIFConfigPatchRequest {
-  spec?: WIFConfigSpec;
+@example(exampleWifConfigPatchRequest)
+model WifConfigPatchRequest {
+  spec?: WifConfigSpec;
   labels?: Record<string>;
 }
 
-model WIFConfigList {
-  ...List<WIFConfig>;
+model WifConfigList {
+  ...List<WifConfig>;
 }
