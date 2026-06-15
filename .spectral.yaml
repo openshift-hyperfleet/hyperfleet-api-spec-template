@@ -2,5 +2,6 @@ extends: ["spectral:oas"]
 overrides:
   - files:
       - "schemas/template/openapi.yaml#/components/schemas/BearerAuth"
+      - "schemas/template/openapi.yaml#/components/schemas/ForbiddenResponse"
     rules:
       oas3-unused-component: off
