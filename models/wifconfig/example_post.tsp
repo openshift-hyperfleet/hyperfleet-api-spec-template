@@ -1,7 +1,7 @@
 import "./model.tsp";
 
-const exampleWIFConfigCreateRequest: WIFConfigCreateRequest = #{
-  kind: "WIFConfig",
+const exampleWifConfigCreateRequest: WifConfigCreateRequest = #{
+  kind: "WifConfig",
   name: "my-wif-config",
   labels: #{ environment: "production" },
   spec: #{

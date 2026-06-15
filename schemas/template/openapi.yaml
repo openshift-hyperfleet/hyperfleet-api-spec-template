@@ -19,7 +19,7 @@ tags:
   - name: NodePools
   - name: Channels
   - name: Versions
-  - name: WIFConfigs
+  - name: WifConfigs
 paths:
   /api/hyperfleet/v1/channels:
     get:
@@ -1158,7 +1158,7 @@ paths:
         - BearerAuth: []
   /api/hyperfleet/v1/wifconfigs:
     get:
-      operationId: getWIFConfigs
+      operationId: getWifConfigs
       summary: List WIF configs
       description: Returns a paginated list of WIF configs, optionally filtered by labels or TSL query.
       parameters:
@@ -1173,7 +1173,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WIFConfigList'
+                $ref: '#/components/schemas/WifConfigList'
         '400':
           description: The server could not understand the request due to invalid syntax.
           content:
@@ -1187,11 +1187,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
       tags:
-        - WIFConfigs
+        - WifConfigs
       security:
         - BearerAuth: []
     post:
-      operationId: postWIFConfig
+      operationId: postWifConfig
       summary: Create WIF config
       description: Creates a new WIF config.
       parameters: []
@@ -1201,7 +1201,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WIFConfig'
+                $ref: '#/components/schemas/WifConfig'
         '400':
           description: The server could not understand the request due to invalid syntax.
           content:
@@ -1215,18 +1215,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
       tags:
-        - WIFConfigs
+        - WifConfigs
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/WIFConfigCreateRequest'
+              $ref: '#/components/schemas/WifConfigCreateRequest'
       security:
         - BearerAuth: []
   /api/hyperfleet/v1/wifconfigs/{wifconfig_id}:
     get:
-      operationId: getWIFConfigById
+      operationId: getWifConfigById
       summary: Get WIF config by ID
       description: Returns a single WIF config by its ID.
       parameters:
@@ -1242,7 +1242,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WIFConfig'
+                $ref: '#/components/schemas/WifConfig'
         '400':
           description: The server could not understand the request due to invalid syntax.
           content:
@@ -1262,11 +1262,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
       tags:
-        - WIFConfigs
+        - WifConfigs
       security:
         - BearerAuth: []
     patch:
-      operationId: patchWIFConfigById
+      operationId: patchWifConfigById
       summary: Patch WIF config by ID
       description: Patches a WIF config by ID. Supports partial updates to spec and labels.
       parameters:
@@ -1281,7 +1281,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WIFConfig'
+                $ref: '#/components/schemas/WifConfig'
         '400':
           description: The server could not understand the request due to invalid syntax.
           content:
@@ -1307,17 +1307,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
       tags:
-        - WIFConfigs
+        - WifConfigs
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/WIFConfigPatchRequest'
+              $ref: '#/components/schemas/WifConfigPatchRequest'
       security:
         - BearerAuth: []
     delete:
-      operationId: deleteWIFConfigById
+      operationId: deleteWifConfigById
       summary: Request WIF config deletion
       description: Marks a WIF config for deletion.
       parameters:
@@ -1332,7 +1332,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WIFConfig'
+                $ref: '#/components/schemas/WifConfig'
         '400':
           description: The server could not understand the request due to invalid syntax.
           content:
@@ -1358,7 +1358,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
       tags:
-        - WIFConfigs
+        - WifConfigs
       security:
         - BearerAuth: []
 components:
@@ -2789,7 +2789,7 @@ components:
           type: string
           format: date-time
           description: When this version reaches end of life
-    WIFConfig:
+    WifConfig:
       type: object
       required:
         - name
@@ -2821,7 +2821,7 @@ components:
           maxLength: 63
           pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?$
         spec:
-          $ref: '#/components/schemas/WIFConfigSpec'
+          $ref: '#/components/schemas/WifConfigSpec'
         created_time:
           type: string
           format: date-time
@@ -2853,7 +2853,7 @@ components:
         status:
           $ref: '#/components/schemas/ResourceStatus'
       example:
-        kind: WIFConfig
+        kind: WifConfig
         id: 019466a2-5678-7abc-9def-0123456789ab
         href: /api/hyperfleet/v1/wifconfigs/019466a2-5678-7abc-9def-0123456789ab
         name: my-wif-config
@@ -2869,7 +2869,7 @@ components:
         updated_time: '2025-06-01T10:02:00Z'
         created_by: user-123@example.com
         updated_by: user-123@example.com
-    WIFConfigCreateRequest:
+    WifConfigCreateRequest:
       type: object
       required:
         - name
@@ -2895,16 +2895,16 @@ components:
           maxLength: 63
           pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?$
         spec:
-          $ref: '#/components/schemas/WIFConfigSpec'
+          $ref: '#/components/schemas/WifConfigSpec'
       example:
-        kind: WIFConfig
+        kind: WifConfig
         name: my-wif-config
         labels:
           environment: production
         spec:
           version: '4.17'
           project_id: my-gcp-project-123
-    WIFConfigList:
+    WifConfigList:
       type: object
       required:
         - page
@@ -2924,12 +2924,12 @@ components:
         items:
           type: array
           items:
-            $ref: '#/components/schemas/WIFConfig'
-    WIFConfigPatchRequest:
+            $ref: '#/components/schemas/WifConfig'
+    WifConfigPatchRequest:
       type: object
       properties:
         spec:
-          $ref: '#/components/schemas/WIFConfigSpec'
+          $ref: '#/components/schemas/WifConfigSpec'
         labels:
           type: object
           additionalProperties:
@@ -2942,7 +2942,7 @@ components:
           environment: staging
       additionalProperties: false
       minProperties: 1
-    WIFConfigSpec:
+    WifConfigSpec:
       type: object
       required:
         - version

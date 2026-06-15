@@ -9,9 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.22] - 2026-06-04
 
-### Removed
+### Changed
 
-- `kind` property from `ClusterList`, `NodePoolList`, `AdapterStatusList`, and `ResourceList` list response schemas — inherited from core spec update (HYPERFLEET-1143)
+- Renamed `WIFConfig` to `WifConfig` (PascalCase) for consistency with other resource kinds (HYPERFLEET-1090)
 
 ## [1.0.21] - 2026-06-02
 

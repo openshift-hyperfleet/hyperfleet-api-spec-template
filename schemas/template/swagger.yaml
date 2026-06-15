@@ -1272,7 +1272,7 @@ paths:
         '200':
           description: The request has succeeded.
           schema:
-            $ref: '#/definitions/WIFConfigList'
+            $ref: '#/definitions/WifConfigList'
         '400':
           description: The server could not understand the request due to invalid syntax.
           schema:
@@ -1284,11 +1284,11 @@ paths:
       security:
         - BearerAuth: []
       tags:
-        - WIFConfigs
+        - WifConfigs
       description: >-
         Returns a paginated list of WIF configs, optionally filtered by labels
         or TSL query.
-      operationId: getWIFConfigs
+      operationId: getWifConfigs
       summary: List WIF configs
     post:
       consumes:
@@ -1301,14 +1301,14 @@ paths:
           name: body
           required: true
           schema:
-            $ref: '#/definitions/WIFConfigCreateRequest'
+            $ref: '#/definitions/WifConfigCreateRequest'
       responses:
         '201':
           description: >-
             The request has succeeded and a new resource has been created as a
             result.
           schema:
-            $ref: '#/definitions/WIFConfig'
+            $ref: '#/definitions/WifConfig'
         '400':
           description: The server could not understand the request due to invalid syntax.
           schema:
@@ -1320,9 +1320,9 @@ paths:
       security:
         - BearerAuth: []
       tags:
-        - WIFConfigs
+        - WifConfigs
       description: Creates a new WIF config.
-      operationId: postWIFConfig
+      operationId: postWifConfig
       summary: Create WIF config
   '/api/hyperfleet/v1/wifconfigs/{wifconfig_id}':
     delete:
@@ -1340,7 +1340,7 @@ paths:
             The request has been accepted for processing, but processing has not
             yet completed.
           schema:
-            $ref: '#/definitions/WIFConfig'
+            $ref: '#/definitions/WifConfig'
         '400':
           description: The server could not understand the request due to invalid syntax.
           schema:
@@ -1360,9 +1360,9 @@ paths:
       security:
         - BearerAuth: []
       tags:
-        - WIFConfigs
+        - WifConfigs
       description: Marks a WIF config for deletion.
-      operationId: deleteWIFConfigById
+      operationId: deleteWifConfigById
       summary: Request WIF config deletion
     get:
       produces:
@@ -1386,7 +1386,7 @@ paths:
         '200':
           description: The request has succeeded.
           schema:
-            $ref: '#/definitions/WIFConfig'
+            $ref: '#/definitions/WifConfig'
         '400':
           description: The server could not understand the request due to invalid syntax.
           schema:
@@ -1402,9 +1402,9 @@ paths:
       security:
         - BearerAuth: []
       tags:
-        - WIFConfigs
+        - WifConfigs
       description: Returns a single WIF config by its ID.
-      operationId: getWIFConfigById
+      operationId: getWifConfigById
       summary: Get WIF config by ID
     patch:
       consumes:
@@ -1421,12 +1421,12 @@ paths:
           name: body
           required: true
           schema:
-            $ref: '#/definitions/WIFConfigPatchRequest'
+            $ref: '#/definitions/WifConfigPatchRequest'
       responses:
         '200':
           description: The request has succeeded.
           schema:
-            $ref: '#/definitions/WIFConfig'
+            $ref: '#/definitions/WifConfig'
         '400':
           description: The server could not understand the request due to invalid syntax.
           schema:
@@ -1446,9 +1446,9 @@ paths:
       security:
         - BearerAuth: []
       tags:
-        - WIFConfigs
+        - WifConfigs
       description: Patches a WIF config by ID. Supports partial updates to spec and labels.
-      operationId: patchWIFConfigById
+      operationId: patchWifConfigById
       summary: Patch WIF config by ID
 definitions:
   AcceleratorSpec:
@@ -2888,14 +2888,14 @@ definitions:
       - is_default
       - release_image
     type: object
-  WIFConfig:
+  WifConfig:
     example:
       created_by: user-123@example.com
       created_time: '2025-06-01T00:00:00Z'
       generation: 1
       href: /api/hyperfleet/v1/wifconfigs/019466a2-5678-7abc-9def-0123456789ab
       id: 019466a2-5678-7abc-9def-0123456789ab
-      kind: WIFConfig
+      kind: WifConfig
       labels:
         environment: production
       name: my-wif-config
@@ -2949,7 +2949,7 @@ definitions:
         pattern: '^[a-z0-9]([-a-z0-9]*[a-z0-9])?$'
         type: string
       spec:
-        $ref: '#/definitions/WIFConfigSpec'
+        $ref: '#/definitions/WifConfigSpec'
       status:
         $ref: '#/definitions/ResourceStatus'
       updated_by:
@@ -2970,9 +2970,9 @@ definitions:
       - generation
       - status
     type: object
-  WIFConfigCreateRequest:
+  WifConfigCreateRequest:
     example:
-      kind: WIFConfig
+      kind: WifConfig
       labels:
         environment: production
       name: my-wif-config
@@ -3000,16 +3000,16 @@ definitions:
         pattern: '^[a-z0-9]([-a-z0-9]*[a-z0-9])?$'
         type: string
       spec:
-        $ref: '#/definitions/WIFConfigSpec'
+        $ref: '#/definitions/WifConfigSpec'
     required:
       - name
       - spec
     type: object
-  WIFConfigList:
+  WifConfigList:
     properties:
       items:
         items:
-          $ref: '#/definitions/WIFConfig'
+          $ref: '#/definitions/WifConfig'
         type: array
       page:
         format: int32
@@ -3026,7 +3026,7 @@ definitions:
       - total
       - items
     type: object
-  WIFConfigPatchRequest:
+  WifConfigPatchRequest:
     additionalProperties: false
     example:
       labels:
@@ -3041,9 +3041,9 @@ definitions:
           type: string
         type: object
       spec:
-        $ref: '#/definitions/WIFConfigSpec'
+        $ref: '#/definitions/WifConfigSpec'
     type: object
-  WIFConfigSpec:
+  WifConfigSpec:
     properties:
       project_id:
         description: GCP project identifier
@@ -3065,7 +3065,7 @@ tags:
   - name: NodePools
   - name: Channels
   - name: Versions
-  - name: WIFConfigs
+  - name: WifConfigs
 x-components:
   parameters:
     QueryParams.order:
