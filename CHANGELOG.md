@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.23] - 2026-06-11
+
+### Removed
+
+- `kind` property from `ChannelList`, `ClusterList`, `NodePoolList`, `VersionList`, and `WifConfigList` list response schemas — inherited from core spec update (HYPERFLEET-1143)
+
+### Changed
+
+- Error responses now use RFC 9457 `ProblemDetails` format with status-specific schemas (`BadRequestDetails`, `ConflictDetails`, `NotFoundDetails`, `UnauthorizedDetails`) — inherited from core spec update (HYPERFLEET-993)
+- Pagination query parameters (`page`, `pageSize`) now enforce `minimum: 1` (HYPERFLEET-993)
+
 ## [1.0.22] - 2026-06-04
 
 ### Changed
@@ -75,7 +86,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- Links -->
 
-[Unreleased]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.22...HEAD
+[Unreleased]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.23...HEAD
+[1.0.23]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.22...v1.0.23
 [1.0.22]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.21...v1.0.22
 [1.0.21]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.20...v1.0.21
 [1.0.20]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.19...v1.0.20
