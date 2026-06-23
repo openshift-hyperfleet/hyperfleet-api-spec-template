@@ -17,7 +17,7 @@ info:
     name: Apache 2.0
     url: 'https://www.apache.org/licenses/LICENSE-2.0'
   title: HyperFleet API
-  version: 1.0.23
+  version: 1.0.24
 host: hyperfleet.redhat.com
 basePath: /
 schemes:
@@ -2214,6 +2214,7 @@ definitions:
     type: object
   NodePoolCreateRequest:
     example:
+      kind: NodePool
       labels:
         environment: production
         pooltype: worker

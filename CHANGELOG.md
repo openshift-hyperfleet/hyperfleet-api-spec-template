@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.24] - 2026-06-22
+
+### Fixed
+
+- Added missing `kind` field to NodePool creation example
+
 ## [1.0.23] - 2026-06-11
 
 ### Removed
@@ -85,8 +91,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `hyperfleet` npm dependency for importing shared models and services from the core repository
 
 <!-- Links -->
-
-[Unreleased]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.23...HEAD
+[Unreleased]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.24...HEAD
+[1.0.24]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.23...v1.0.24
 [1.0.23]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.22...v1.0.23
 [1.0.22]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.21...v1.0.22
 [1.0.21]: https://github.com/openshift-hyperfleet/hyperfleet-api-spec-template/compare/v1.0.20...v1.0.21
