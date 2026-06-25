@@ -17,7 +17,7 @@ info:
     name: Apache 2.0
     url: 'https://www.apache.org/licenses/LICENSE-2.0'
   title: HyperFleet API
-  version: 1.0.24
+  version: 1.0.25
 host: hyperfleet.redhat.com
 basePath: /
 schemes:
@@ -49,17 +49,10 @@ paths:
           format: int32
           in: query
           minimum: 1
-          name: pageSize
+          name: size
           required: false
           type: integer
         - default: created_time
-          in: query
-          name: orderBy
-          required: false
-          type: string
-        - enum:
-            - asc
-            - desc
           in: query
           name: order
           required: false
@@ -278,17 +271,10 @@ paths:
           format: int32
           in: query
           minimum: 1
-          name: pageSize
+          name: size
           required: false
           type: integer
         - default: created_time
-          in: query
-          name: orderBy
-          required: false
-          type: string
-        - enum:
-            - asc
-            - desc
           in: query
           name: order
           required: false
@@ -506,17 +492,10 @@ paths:
           format: int32
           in: query
           minimum: 1
-          name: pageSize
+          name: size
           required: false
           type: integer
         - default: created_time
-          in: query
-          name: orderBy
-          required: false
-          type: string
-        - enum:
-            - asc
-            - desc
           in: query
           name: order
           required: false
@@ -845,17 +824,10 @@ paths:
           format: int32
           in: query
           minimum: 1
-          name: pageSize
+          name: size
           required: false
           type: integer
         - default: created_time
-          in: query
-          name: orderBy
-          required: false
-          type: string
-        - enum:
-            - asc
-            - desc
           in: query
           name: order
           required: false
@@ -1188,17 +1160,10 @@ paths:
           format: int32
           in: query
           minimum: 1
-          name: pageSize
+          name: size
           required: false
           type: integer
         - default: created_time
-          in: query
-          name: orderBy
-          required: false
-          type: string
-        - enum:
-            - asc
-            - desc
           in: query
           name: order
           required: false
@@ -1253,17 +1218,10 @@ paths:
           format: int32
           in: query
           minimum: 1
-          name: pageSize
+          name: size
           required: false
           type: integer
         - default: created_time
-          in: query
-          name: orderBy
-          required: false
-          type: string
-        - enum:
-            - asc
-            - desc
           in: query
           name: order
           required: false
@@ -1585,6 +1543,7 @@ definitions:
         format: date-time
         type: string
     required:
+      - kind
       - name
       - spec
       - created_time
@@ -1626,6 +1585,7 @@ definitions:
       spec:
         $ref: '#/definitions/ChannelSpec'
     required:
+      - kind
       - name
       - spec
     type: object
@@ -1811,6 +1771,7 @@ definitions:
         format: date-time
         type: string
     required:
+      - kind
       - name
       - spec
       - created_time
@@ -1871,6 +1832,7 @@ definitions:
       spec:
         $ref: '#/definitions/ClusterSpec'
     required:
+      - kind
       - name
       - spec
     type: object
@@ -2202,6 +2164,7 @@ definitions:
         format: date-time
         type: string
     required:
+      - kind
       - name
       - spec
       - created_time
@@ -2263,6 +2226,7 @@ definitions:
       spec:
         $ref: '#/definitions/NodePoolSpec'
     required:
+      - kind
       - name
       - spec
     type: object
@@ -2328,6 +2292,7 @@ definitions:
         format: date-time
         type: string
     required:
+      - kind
       - name
       - spec
       - created_time
@@ -2503,12 +2468,9 @@ definitions:
       kind:
         description: Resource kind
         type: string
+    required:
+      - kind
     type: object
-  OrderDirection:
-    enum:
-      - asc
-      - desc
-    type: string
   ProblemDetails:
     description: RFC 9457 Problem Details for HTTP APIs
     example:
@@ -2780,6 +2742,7 @@ definitions:
         format: date-time
         type: string
     required:
+      - kind
       - name
       - spec
       - created_time
@@ -2822,6 +2785,7 @@ definitions:
       spec:
         $ref: '#/definitions/VersionSpec'
     required:
+      - kind
       - name
       - spec
     type: object
@@ -2962,6 +2926,7 @@ definitions:
         format: date-time
         type: string
     required:
+      - kind
       - name
       - spec
       - created_time
@@ -3003,6 +2968,7 @@ definitions:
       spec:
         $ref: '#/definitions/WifConfigSpec'
     required:
+      - kind
       - name
       - spec
     type: object
@@ -3070,17 +3036,9 @@ tags:
 x-components:
   parameters:
     QueryParams.order:
-      enum:
-        - asc
-        - desc
-      in: query
-      name: order
-      required: false
-      type: string
-    QueryParams.orderBy:
       default: created_time
       in: query
-      name: orderBy
+      name: order
       required: false
       type: string
     QueryParams.page:
@@ -3091,12 +3049,12 @@ x-components:
       name: page
       required: false
       type: integer
-    QueryParams.pageSize:
+    QueryParams.size:
       default: 20
       format: int32
       in: query
       minimum: 1
-      name: pageSize
+      name: size
       required: false
       type: integer
     SearchParams:

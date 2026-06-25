@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: HyperFleet API
-  version: 1.0.24
+  version: 1.0.25
   contact:
     name: HyperFleet Team
     url: https://github.com/openshift-hyperfleet
@@ -29,8 +29,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/SearchParams'
         - $ref: '#/components/parameters/QueryParams.page'
-        - $ref: '#/components/parameters/QueryParams.pageSize'
-        - $ref: '#/components/parameters/QueryParams.orderBy'
+        - $ref: '#/components/parameters/QueryParams.size'
         - $ref: '#/components/parameters/QueryParams.order'
       responses:
         '200':
@@ -239,8 +238,7 @@ paths:
             type: string
         - $ref: '#/components/parameters/SearchParams'
         - $ref: '#/components/parameters/QueryParams.page'
-        - $ref: '#/components/parameters/QueryParams.pageSize'
-        - $ref: '#/components/parameters/QueryParams.orderBy'
+        - $ref: '#/components/parameters/QueryParams.size'
         - $ref: '#/components/parameters/QueryParams.order'
       responses:
         '200':
@@ -463,8 +461,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/SearchParams'
         - $ref: '#/components/parameters/QueryParams.page'
-        - $ref: '#/components/parameters/QueryParams.pageSize'
-        - $ref: '#/components/parameters/QueryParams.orderBy'
+        - $ref: '#/components/parameters/QueryParams.size'
         - $ref: '#/components/parameters/QueryParams.order'
       responses:
         '200':
@@ -782,8 +779,7 @@ paths:
             type: string
         - $ref: '#/components/parameters/SearchParams'
         - $ref: '#/components/parameters/QueryParams.page'
-        - $ref: '#/components/parameters/QueryParams.pageSize'
-        - $ref: '#/components/parameters/QueryParams.orderBy'
+        - $ref: '#/components/parameters/QueryParams.size'
         - $ref: '#/components/parameters/QueryParams.order'
       responses:
         '200':
@@ -1124,8 +1120,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/SearchParams'
         - $ref: '#/components/parameters/QueryParams.page'
-        - $ref: '#/components/parameters/QueryParams.pageSize'
-        - $ref: '#/components/parameters/QueryParams.orderBy'
+        - $ref: '#/components/parameters/QueryParams.size'
         - $ref: '#/components/parameters/QueryParams.order'
       responses:
         '200':
@@ -1164,8 +1159,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/SearchParams'
         - $ref: '#/components/parameters/QueryParams.page'
-        - $ref: '#/components/parameters/QueryParams.pageSize'
-        - $ref: '#/components/parameters/QueryParams.orderBy'
+        - $ref: '#/components/parameters/QueryParams.size'
         - $ref: '#/components/parameters/QueryParams.order'
       responses:
         '200':
@@ -1368,13 +1362,6 @@ components:
       in: query
       required: false
       schema:
-        $ref: '#/components/schemas/OrderDirection'
-      explode: false
-    QueryParams.orderBy:
-      name: orderBy
-      in: query
-      required: false
-      schema:
         type: string
         default: created_time
       explode: false
@@ -1388,8 +1375,8 @@ components:
         minimum: 1
         default: 1
       explode: false
-    QueryParams.pageSize:
-      name: pageSize
+    QueryParams.size:
+      name: size
       in: query
       required: false
       schema:
@@ -1473,6 +1460,7 @@ components:
     Channel:
       type: object
       required:
+        - kind
         - name
         - spec
         - created_time
@@ -1553,6 +1541,7 @@ components:
     ChannelCreateRequest:
       type: object
       required:
+        - kind
         - name
         - spec
       properties:
@@ -1638,6 +1627,7 @@ components:
     Cluster:
       type: object
       required:
+        - kind
         - name
         - spec
         - created_time
@@ -1770,6 +1760,7 @@ components:
     ClusterCreateRequest:
       type: object
       required:
+        - kind
         - name
         - spec
       properties:
@@ -2001,6 +1992,7 @@ components:
     NodePool:
       type: object
       required:
+        - kind
         - name
         - spec
         - created_time
@@ -2140,6 +2132,7 @@ components:
     NodePoolCreateRequest:
       type: object
       required:
+        - kind
         - name
         - spec
       properties:
@@ -2194,6 +2187,7 @@ components:
     NodePoolCreateResponse:
       type: object
       required:
+        - kind
         - name
         - spec
         - created_time
@@ -2407,6 +2401,8 @@ components:
         trace_id: deadbeef12345678
     ObjectReference:
       type: object
+      required:
+        - kind
       properties:
         id:
           type: string
@@ -2417,11 +2413,6 @@ components:
         href:
           type: string
           description: Resource URI
-    OrderDirection:
-      type: string
-      enum:
-        - asc
-        - desc
     ProblemDetails:
       type: object
       required:
@@ -2607,6 +2598,7 @@ components:
     Version:
       type: object
       required:
+        - kind
         - name
         - spec
         - created_time
@@ -2694,6 +2686,7 @@ components:
     VersionCreateRequest:
       type: object
       required:
+        - kind
         - name
         - spec
       properties:
@@ -2793,6 +2786,7 @@ components:
     WifConfig:
       type: object
       required:
+        - kind
         - name
         - spec
         - created_time
@@ -2873,6 +2867,7 @@ components:
     WifConfigCreateRequest:
       type: object
       required:
+        - kind
         - name
         - spec
       properties:
