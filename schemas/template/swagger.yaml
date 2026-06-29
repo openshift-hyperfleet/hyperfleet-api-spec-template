@@ -17,7 +17,7 @@ info:
     name: Apache 2.0
     url: 'https://www.apache.org/licenses/LICENSE-2.0'
   title: HyperFleet API
-  version: 1.0.25
+  version: 1.0.26
 host: hyperfleet.redhat.com
 basePath: /
 schemes:
@@ -1491,7 +1491,6 @@ definitions:
     properties:
       created_by:
         description: Identity that created the resource
-        format: email
         type: string
       created_time:
         description: Timestamp when the resource was created
@@ -1499,7 +1498,6 @@ definitions:
         type: string
       deleted_by:
         description: Identity that requested deletion; omitted if not marked for deletion
-        format: email
         type: string
       deleted_time:
         description: >-
@@ -1536,7 +1534,6 @@ definitions:
         $ref: '#/definitions/ResourceStatus'
       updated_by:
         description: Identity that last updated the resource
-        format: email
         type: string
       updated_time:
         description: Timestamp when the resource was last updated
@@ -1715,7 +1712,6 @@ definitions:
     properties:
       created_by:
         description: Identity that created the resource
-        format: email
         type: string
       created_time:
         description: Timestamp when the resource was created
@@ -1723,7 +1719,6 @@ definitions:
         type: string
       deleted_by:
         description: Identity that requested deletion; omitted if not marked for deletion
-        format: email
         type: string
       deleted_time:
         description: >-
@@ -1764,7 +1759,6 @@ definitions:
         $ref: '#/definitions/ClusterStatus'
       updated_by:
         description: Identity that last updated the resource
-        format: email
         type: string
       updated_time:
         description: Timestamp when the resource was last updated
@@ -2106,7 +2100,6 @@ definitions:
     properties:
       created_by:
         description: Identity that created the resource
-        format: email
         type: string
       created_time:
         description: Timestamp when the resource was created
@@ -2114,7 +2107,6 @@ definitions:
         type: string
       deleted_by:
         description: Identity that requested deletion; omitted if not marked for deletion
-        format: email
         type: string
       deleted_time:
         description: >-
@@ -2157,7 +2149,6 @@ definitions:
         $ref: '#/definitions/NodePoolStatus'
       updated_by:
         description: Identity that last updated the resource
-        format: email
         type: string
       updated_time:
         description: Timestamp when the resource was last updated
@@ -2234,7 +2225,6 @@ definitions:
     properties:
       created_by:
         description: Identity that created the resource
-        format: email
         type: string
       created_time:
         description: Timestamp when the resource was created
@@ -2242,7 +2232,6 @@ definitions:
         type: string
       deleted_by:
         description: Identity that requested deletion; omitted if not marked for deletion
-        format: email
         type: string
       deleted_time:
         description: >-
@@ -2285,7 +2274,6 @@ definitions:
         $ref: '#/definitions/NodePoolStatus'
       updated_by:
         description: Identity that last updated the resource
-        format: email
         type: string
       updated_time:
         description: Timestamp when the resource was last updated
@@ -2689,7 +2677,6 @@ definitions:
     properties:
       created_by:
         description: Identity that created the resource
-        format: email
         type: string
       created_time:
         description: Timestamp when the resource was created
@@ -2697,7 +2684,6 @@ definitions:
         type: string
       deleted_by:
         description: Identity that requested deletion; omitted if not marked for deletion
-        format: email
         type: string
       deleted_time:
         description: >-
@@ -2735,7 +2721,6 @@ definitions:
         $ref: '#/definitions/ResourceStatus'
       updated_by:
         description: Identity that last updated the resource
-        format: email
         type: string
       updated_time:
         description: Timestamp when the resource was last updated
@@ -2874,7 +2859,6 @@ definitions:
     properties:
       created_by:
         description: Identity that created the resource
-        format: email
         type: string
       created_time:
         description: Timestamp when the resource was created
@@ -2882,7 +2866,6 @@ definitions:
         type: string
       deleted_by:
         description: Identity that requested deletion; omitted if not marked for deletion
-        format: email
         type: string
       deleted_time:
         description: >-
@@ -2919,7 +2902,6 @@ definitions:
         $ref: '#/definitions/ResourceStatus'
       updated_by:
         description: Identity that last updated the resource
-        format: email
         type: string
       updated_time:
         description: Timestamp when the resource was last updated

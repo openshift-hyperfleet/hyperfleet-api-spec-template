@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: HyperFleet API
-  version: 1.0.25
+  version: 1.0.26
   contact:
     name: HyperFleet Team
     url: https://github.com/openshift-hyperfleet
@@ -1501,11 +1501,9 @@ components:
           description: Timestamp when the resource was last updated
         created_by:
           type: string
-          format: email
           description: Identity that created the resource
         updated_by:
           type: string
-          format: email
           description: Identity that last updated the resource
         deleted_time:
           type: string
@@ -1513,7 +1511,6 @@ components:
           description: Timestamp when deletion was requested; omitted if not marked for deletion
         deleted_by:
           type: string
-          format: email
           description: Identity that requested deletion; omitted if not marked for deletion
         generation:
           type: integer
@@ -1669,11 +1666,9 @@ components:
           description: Timestamp when the resource was last updated
         created_by:
           type: string
-          format: email
           description: Identity that created the resource
         updated_by:
           type: string
-          format: email
           description: Identity that last updated the resource
         deleted_time:
           type: string
@@ -1681,7 +1676,6 @@ components:
           description: Timestamp when deletion was requested; omitted if not marked for deletion
         deleted_by:
           type: string
-          format: email
           description: Identity that requested deletion; omitted if not marked for deletion
         generation:
           type: integer
@@ -2035,11 +2029,9 @@ components:
           description: Timestamp when the resource was last updated
         created_by:
           type: string
-          format: email
           description: Identity that created the resource
         updated_by:
           type: string
-          format: email
           description: Identity that last updated the resource
         deleted_time:
           type: string
@@ -2047,7 +2039,6 @@ components:
           description: Timestamp when deletion was requested; omitted if not marked for deletion
         deleted_by:
           type: string
-          format: email
           description: Identity that requested deletion; omitted if not marked for deletion
         generation:
           type: integer
@@ -2230,11 +2221,9 @@ components:
           description: Timestamp when the resource was last updated
         created_by:
           type: string
-          format: email
           description: Identity that created the resource
         updated_by:
           type: string
-          format: email
           description: Identity that last updated the resource
         deleted_time:
           type: string
@@ -2242,7 +2231,6 @@ components:
           description: Timestamp when deletion was requested; omitted if not marked for deletion
         deleted_by:
           type: string
-          format: email
           description: Identity that requested deletion; omitted if not marked for deletion
         generation:
           type: integer
@@ -2639,11 +2627,9 @@ components:
           description: Timestamp when the resource was last updated
         created_by:
           type: string
-          format: email
           description: Identity that created the resource
         updated_by:
           type: string
-          format: email
           description: Identity that last updated the resource
         deleted_time:
           type: string
@@ -2651,7 +2637,6 @@ components:
           description: Timestamp when deletion was requested; omitted if not marked for deletion
         deleted_by:
           type: string
-          format: email
           description: Identity that requested deletion; omitted if not marked for deletion
         generation:
           type: integer
@@ -2827,11 +2812,9 @@ components:
           description: Timestamp when the resource was last updated
         created_by:
           type: string
-          format: email
           description: Identity that created the resource
         updated_by:
           type: string
-          format: email
           description: Identity that last updated the resource
         deleted_time:
           type: string
@@ -2839,7 +2822,6 @@ components:
           description: Timestamp when deletion was requested; omitted if not marked for deletion
         deleted_by:
           type: string
-          format: email
           description: Identity that requested deletion; omitted if not marked for deletion
         generation:
           type: integer
