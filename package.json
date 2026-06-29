@@ -7,7 +7,7 @@
     "build": "./build-schema.sh"
   },
   "dependencies": {
-    "hyperfleet": "github:openshift-hyperfleet/hyperfleet-api-spec#v1.0.24"
+    "hyperfleet": "github:openshift-hyperfleet/hyperfleet-api-spec#v1.0.25"
   },
   "devDependencies": {
     "@stoplight/spectral-cli": "6.15.1",
