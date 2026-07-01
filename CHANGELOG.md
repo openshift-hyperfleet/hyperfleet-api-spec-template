@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.27] - 2026-07-01
+
+### Added
+
+- Go module support (`go.mod` + `schemas/schemas.go`) for downstream Go consumers (HYPERFLEET-1202)
+
 ## [1.0.24] - 2026-06-22
 
 ### Fixed
